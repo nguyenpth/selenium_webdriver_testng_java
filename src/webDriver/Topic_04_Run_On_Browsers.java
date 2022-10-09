@@ -1,6 +1,8 @@
 package webDriver;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 
@@ -20,15 +22,15 @@ public class Topic_04_Run_On_Browsers {
 	@Test
 	public void TC_02_Chrome() {
 		System.setProperty("webdriver.chrome.driver", projectPath + "/browserDrivers/chromedriver");
-		driver = new FirefoxDriver();
+		driver = new ChromeDriver();
 		driver.get("https://www.facebook.com/");
 		
 		driver.quit();
 	}
 	@Test
 	public void TC_03_Edge() {
-		System.setProperty("webdriver.edges.driver", projectPath + "/browserDrivers/msedgedriver");
-		driver = new FirefoxDriver();
+		System.setProperty("webdriver.edge.driver", projectPath + "/browserDrivers/msedgedriver");
+		driver = new EdgeDriver();
 		driver.get("https://www.facebook.com/");
 		
 		driver.quit();
