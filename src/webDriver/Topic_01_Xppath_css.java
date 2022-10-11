@@ -55,6 +55,9 @@ public class Topic_01_Xppath_css {
 		
 		// noi chuoi
 		//span[text()=concat('Hello "John", What',"'s happened?")]
+		// đi từ nốt Sony Xperia -> cha -> em-> tới class 
+		//a[@title='Sony Xperia']/parent::h2/following-sibling::div[@class='actions']
+		// 
 		
 
 		
