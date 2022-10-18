@@ -10,7 +10,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Topic_00_Template {
+public class Topic_06_Textbox_textArea {
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
 	String osName =System.getProperty("os.name");
@@ -28,7 +28,7 @@ public class Topic_00_Template {
 		driver = new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-		
+		driver.get("https://www.facebook.com/");
 	}
 
 	@Test
@@ -39,21 +39,7 @@ public class Topic_00_Template {
 		
 		driver.quit();
 	}
-	
-	//sleep cứng ()
-	@Test
-	public void TC_02_() throws InterruptedException  {
-		Thread.sleep(5000);
-	
-	}
-	public void sleepInSecond(long timeInSecond ) {
-		try {
-			Thread.sleep(timeInSecond * 1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+
 
 	
 }
