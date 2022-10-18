@@ -35,7 +35,7 @@ public class Topic_00_Template {
 	public void TC_01_() {
 		System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
 		driver = new FirefoxDriver();
-		driver.get("https://www.facebook.com/");
+		//driver.get("https://www.facebook.com/");
 		
 		driver.quit();
 	}
