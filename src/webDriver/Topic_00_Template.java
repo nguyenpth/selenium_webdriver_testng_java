@@ -15,6 +15,7 @@ public class Topic_00_Template {
 	String projectPath = System.getProperty("user.dir");
 	String osName =System.getProperty("os.name");
 
+
 	@BeforeClass
 	public void beforeClass() {
 		if (osName.contains("Mac")) {
@@ -28,11 +29,11 @@ public class Topic_00_Template {
 		driver = new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-		
+
 	}
 
 	@Test
-	public void TC_01_() {
+	public void TC_01_Textbox_TextAreasdsd() {
 		System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
 		driver = new FirefoxDriver();
 		//driver.get("https://www.facebook.com/");
