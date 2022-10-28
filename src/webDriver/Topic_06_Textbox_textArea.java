@@ -75,11 +75,11 @@ public class Topic_06_Textbox_textArea {
 		driver.findElement(By.xpath("//label[text()='Confirm Password']/parent::div/following-sibling::div/input")).sendKeys(cfPassword);
 		sleepInSecond(2);
 		driver.findElement(By.xpath("//button[contains(string(),'Save')]")).click();
-		sleepInSecond(5);
+		sleepInSecond(10);
 		// so sanh gia tri sau khi add success
 		Assert.assertEquals(driver.findElement(By.xpath("//input[@name='firstName']")).getAttribute("value"), firstName);
-		//Assert.assertEquals(driver.findElement(By.name("lastName")).getAttribute("value"), lastName);
-		//Assert.assertEquals(driver.findElement(By.xpath("//label[text()='Employee Id']/parent::div/following-sibling::div/input")).getAttribute("value"), employeeId);
+		Assert.assertEquals(driver.findElement(By.name("lastName")).getAttribute("value"), lastName);
+		Assert.assertEquals(driver.findElement(By.xpath("//label[text()='Employee Id']/parent::div/following-sibling::div/input")).getAttribute("value"), employeeId);
 		// click vao 
 		driver.findElement(By.xpath("//a[text()='Immigration']")).click();
 		sleepInSecond(5);
