@@ -1,15 +1,18 @@
 package webDriver;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 public class Topic_00_Template {
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
@@ -20,13 +23,17 @@ public class Topic_00_Template {
 	public void beforeClass() {
 		if (osName.contains("Mac")) {
 			// mac 
-			System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
+			//System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
+			System.setProperty("webdriver.chrome.driver", projectPath + "/browserDrivers/chromedriver");
 		}
 		else {
 			//window 
-			System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
+			//System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
+			System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
 		}
-		driver = new FirefoxDriver();
+		//driver = new FirefoxDriver();
+		driver = new ChromeDriver();
+		
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 
@@ -34,17 +41,15 @@ public class Topic_00_Template {
 
 	@Test
 	public void TC_01_Textbox_TextAreasdsd() {
-		System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
-		driver = new FirefoxDriver();
-		//driver.get("https://www.facebook.com/");
+		driver.get("https://www.facebook.com/");
 		
-		driver.quit();
+		//driver.quit();
 	}
 	
 	//sleep cứng ()
 	@Test
 	public void TC_02_() throws InterruptedException  {
-		Thread.sleep(5000);
+		//Thread.sleep(5000);
 	
 	}
 	public void sleepInSecond(long timeInSecond ) {
@@ -56,5 +61,7 @@ public class Topic_00_Template {
 		}
 	}
 
+
+	
 	
 }
