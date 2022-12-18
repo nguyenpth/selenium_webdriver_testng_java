@@ -80,10 +80,10 @@ public class Topic_08_Custom_Dropdown {
 		// tắt quảng cáo
 		driver.findElement(By.cssSelector("i.x-cookie")).click();
 		sleepInSecond(2);
+		
 		selectItemIbCustomDropdow("button#selectize-input","button#selectize-input+div>a","CITY L");
 		sleepInSecond(2);
 		Assert.assertEquals(driver.findElement(By.cssSelector("button#selectize-input")).getText(), "CITY L");
-		
 		
 		Select select = new Select(driver.findElement(By.cssSelector("select#province")));
 		select.selectByVisibleText("TP. Hồ Chí Minh");
@@ -94,6 +94,14 @@ public class Topic_08_Custom_Dropdown {
 		select.selectByVisibleText("Khu vực I");
 		sleepInSecond(2);
 		Assert.assertEquals(select.getFirstSelectedOption().getText(),"Khu vực I");
+	}
+	/*3234535
+	 * yyyYYÁÁÁÁÁÁÁ
+	 * 
+	 * 43434*/
+	@Test
+	public void TC_02_Custom_Dropbox_React() {
+		driver.get("https://react.semantic-ui.com/maximize/dropdown-example-selection/");
 	}
 	
 	public void scrollElement(String cssLocator) {
