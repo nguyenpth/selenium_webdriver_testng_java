@@ -56,7 +56,7 @@ public class Topic_08_Custom_Dropdown {
 		
 	}
 
-	@Test
+	// @Test
 	public void TC_01_Custom_Dropbox_Jquery() {
 		//System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
 		//driver = new FirefoxDriver();
@@ -73,7 +73,7 @@ public class Topic_08_Custom_Dropdown {
 		//driver.quit();
 	}
 	
-	@Test
+	//@Test
 	public void TC_02_Custom_Dropbox_Honda() {
 		driver.get("https://www.honda.com.vn/o-to/du-toan-chi-phi");
 		scrollElement("div.container");
@@ -95,13 +95,41 @@ public class Topic_08_Custom_Dropdown {
 		sleepInSecond(2);
 		Assert.assertEquals(select.getFirstSelectedOption().getText(),"Khu vực I");
 	}
-	/*3234535
-	 * yyyYYÁÁÁÁÁÁÁ
-	 * 
-	 * 43434*/
-	@Test
-	public void TC_02_Custom_Dropbox_React() {
+	
+	//@Test
+	public void TC_03_Custom_Dropbox_React() {
 		driver.get("https://react.semantic-ui.com/maximize/dropdown-example-selection/");
+		
+		selectItemIbCustomDropdow("div.dropdown","span.text","Matt" );
+		sleepInSecond(2);
+		Assert.assertEquals(driver.findElement(By.cssSelector("div.divider.text")).getText(), "Matt");
+		
+		selectItemIbCustomDropdow("div.dropdown","span.text","Justen Kitsune" );
+		sleepInSecond(2);
+		Assert.assertEquals(driver.findElement(By.cssSelector("div.divider.text")).getText(), "Justen Kitsune");
+		
+		selectItemIbCustomDropdow("div.dropdown","span.text","Jenny Hess" );
+		sleepInSecond(2);
+		Assert.assertEquals(driver.findElement(By.cssSelector("div.divider.text")).getText(), "Jenny Hess");
+	}
+	
+	
+	//@Test
+	public void TC_04_Custom_Dropbox_VueJS() {
+		driver.get("https://mikerodham.github.io/vue-dropdowns/");
+		sleepInSecond(3);
+		selectItemIbCustomDropdow("li.dropdown-toggle","ul.dropdown-menu a","First Option" );
+		sleepInSecond(3);
+		Assert.assertEquals(driver.findElement(By.cssSelector("li.dropdown-toggle")).getText(), "First Option");
+	}
+	
+	@Test
+	public void TC_05_Custom_Dropbox_Editable() {
+		driver.get("https://react.semantic-ui.com/maximize/dropdown-example-search-selection/");
+		sleepInSecond(3);
+		enter_SelectItemIbCustomDropdow("input.search","span.text","Angola" );
+		sleepInSecond(3);
+		Assert.assertEquals(driver.findElement(By.cssSelector("div.divider.text")).getText(), "Angola");
 	}
 	
 	public void scrollElement(String cssLocator) {
@@ -140,7 +168,30 @@ public class Topic_08_Custom_Dropdown {
 		List <WebElement> allitems =  driver.findElements(By.cssSelector(childLocator));
 		for (WebElement item : allitems) {
 			// lấy text ra 
-			String textActualItem =item.getText();
+			String textActualItem =item.getText().trim();
+			if (textActualItem.equals(textExpectedItem)) {
+				item.click();
+				// dừng lại khi đã tìm thấy
+				break;
+			}
+		}
+	}
+
+	public void enter_SelectItemIbCustomDropdow(String textboxCss, String allItemCss, String textExpectedItem) {
+		// 1. nhập expected text item vào - xổ tất cả các item matching
+		driver.findElement(By.cssSelector(textboxCss)).clear();
+		driver.findElement(By.cssSelector(textboxCss)).sendKeys(textExpectedItem);
+		
+		sleepInSecond(1);
+		// 2. chờ cho tất cả các item load ra thành công hết
+		// đưa hết all item trong dropdown vào 1 list
+		expliciWait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector(allItemCss)));
+		// tìm itrem xem đugns cai cần hay ko
+
+		List<WebElement> allitems = driver.findElements(By.cssSelector(allItemCss));
+		for (WebElement item : allitems) {
+			// lấy text ra
+			String textActualItem = item.getText().trim();
 			if (textActualItem.equals(textExpectedItem)) {
 				item.click();
 				// dừng lại khi đã tìm thấy
