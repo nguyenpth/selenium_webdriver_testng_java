@@ -23,16 +23,16 @@ public class Topic_00_Template {
 	public void beforeClass() {
 		if (osName.contains("Mac")) {
 			// mac 
-			//System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
-			System.setProperty("webdriver.chrome.driver", projectPath + "/browserDrivers/chromedriver");
+			System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
+			//System.setProperty("webdriver.chrome.driver", projectPath + "/browserDrivers/chromedriver");
 		}
 		else {
 			//window 
-			//System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
-			System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
+			System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
+			//System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
 		}
-		//driver = new FirefoxDriver();
-		driver = new ChromeDriver();
+		driver = new FirefoxDriver();
+		//driver = new ChromeDriver();
 		
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
@@ -40,7 +40,7 @@ public class Topic_00_Template {
 	}
 
 	@Test
-	public void TC_01_Textbox_TextAreasdsd() {
+	public void TC_01_() {
 		driver.get("https://www.facebook.com/");
 		
 		//driver.quit();
